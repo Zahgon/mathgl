@@ -3,8 +3,6 @@
 package matstack
 
 import (
-	"errors"
-
 	"github.com/go-gl/mathgl/mgl64"
 )
 
@@ -13,47 +11,31 @@ import (
 // to easily maintain matrix state per call level.
 type MatStack []mgl64.Mat4
 
-func NewMatStack() *MatStack {
-	return &MatStack{mgl64.Ident4()}
-}
+func NewMatStack() *MatStack { _ = "STUB: not implemented"; return nil }
 
 // Push copies the top element and pushes it on the stack.
-func (ms *MatStack) Push() {
-	(*ms) = append(*ms, (*ms)[len(*ms)-1])
-}
+func (ms *MatStack) Push() { _ = "STUB: not implemented"; return }
 
 // Pop removes the first element of the matrix from the stack, if there is only
 // one element left there is an error.
-func (ms *MatStack) Pop() error {
-	if len(*ms) == 1 {
-		return errors.New("Cannot pop from mat stack, at minimum stack length of 1")
-	}
-	(*ms) = (*ms)[:len(*ms)-1]
-
-	return nil
-}
+func (ms *MatStack) Pop() error { _ = "STUB: not implemented"; return nil }
 
 // RightMul multiplies the current top of the matrix by the argument.
-func (ms *MatStack) RightMul(m mgl64.Mat4) {
-	(*ms)[len(*ms)-1] = (*ms)[len(*ms)-1].Mul4(m)
-}
+func (ms *MatStack) RightMul(m mgl64.Mat4) { _ = "STUB: not implemented"; return }
 
 // LeftMul multiplies the current top of the matrix by the argument.
-func (ms *MatStack) LeftMul(m mgl64.Mat4) {
-	(*ms)[len(*ms)-1] = m.Mul4((*ms)[len(*ms)-1])
-}
+func (ms *MatStack) LeftMul(m mgl64.Mat4) { _ = "STUB: not implemented"; return }
 
 // Peek returns the top element.
 func (ms *MatStack) Peek() mgl64.Mat4 {
-	return (*ms)[len(*ms)-1]
+	_ = "STUB: not implemented"
+	return *
+
+	// Load rewrites the top element of the stack with m
+	new(mgl64.Mat4)
 }
 
-// Load rewrites the top element of the stack with m
-func (ms *MatStack) Load(m mgl64.Mat4) {
-	(*ms)[len(*ms)-1] = m
-}
+func (ms *MatStack) Load(m mgl64.Mat4) { _ = "STUB: not implemented"; return }
 
 // LoadIdent is a shortcut for Load(mgl.Ident4())
-func (ms *MatStack) LoadIdent() {
-	(*ms)[len(*ms)-1] = mgl64.Ident4()
-}
+func (ms *MatStack) LoadIdent() { _ = "STUB: not implemented"; return }
